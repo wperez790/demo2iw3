@@ -1,0 +1,189 @@
+package com.example.demo;
+
+import java.sql.Date;
+import java.util.Collection;
+import java.util.Iterator;
+import java.util.List;
+import java.util.ListIterator;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.CommandLineRunner;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import com.example.demo.model.Persona;
+import com.example.demo.model.Titulo;
+import com.example.demo.persistence.PersonaRepository;
+
+
+@SpringBootApplication
+public class Demo2Application implements CommandLineRunner{
+
+	public static void main(String[] args) {
+		SpringApplication.run(Demo2Application.class, args);
+	}
+
+	
+	@Autowired
+	private PersonaRepository personaDAO;
+	
+	
+	@Override
+	public void run(String... args) throws Exception {
+		
+		Titulo t = new Titulo();
+		t.setTitulo("Analista de Sistemas");
+		List<Titulo> titulos = new List<Titulo>() {
+
+			@Override
+			public int size() {
+				// TODO Auto-generated method stub
+				return 0;
+			}
+
+			@Override
+			public boolean isEmpty() {
+				// TODO Auto-generated method stub
+				return false;
+			}
+
+			@Override
+			public boolean contains(Object o) {
+				// TODO Auto-generated method stub
+				return false;
+			}
+
+			@Override
+			public Iterator<Titulo> iterator() {
+				// TODO Auto-generated method stub
+				return null;
+			}
+
+			@Override
+			public Object[] toArray() {
+				// TODO Auto-generated method stub
+				return null;
+			}
+
+			@Override
+			public <T> T[] toArray(T[] a) {
+				// TODO Auto-generated method stub
+				return null;
+			}
+
+			@Override
+			public boolean add(Titulo e) {
+				// TODO Auto-generated method stub
+				return false;
+			}
+
+			@Override
+			public boolean remove(Object o) {
+				// TODO Auto-generated method stub
+				return false;
+			}
+
+			@Override
+			public boolean containsAll(Collection<?> c) {
+				// TODO Auto-generated method stub
+				return false;
+			}
+
+			@Override
+			public boolean addAll(Collection<? extends Titulo> c) {
+				// TODO Auto-generated method stub
+				return false;
+			}
+
+			@Override
+			public boolean addAll(int index, Collection<? extends Titulo> c) {
+				// TODO Auto-generated method stub
+				return false;
+			}
+
+			@Override
+			public boolean removeAll(Collection<?> c) {
+				// TODO Auto-generated method stub
+				return false;
+			}
+
+			@Override
+			public boolean retainAll(Collection<?> c) {
+				// TODO Auto-generated method stub
+				return false;
+			}
+
+			@Override
+			public void clear() {
+				// TODO Auto-generated method stub
+				
+			}
+
+			@Override
+			public Titulo get(int index) {
+				// TODO Auto-generated method stub
+				return null;
+			}
+
+			@Override
+			public Titulo set(int index, Titulo element) {
+				// TODO Auto-generated method stub
+				return null;
+			}
+
+			@Override
+			public void add(int index, Titulo element) {
+				// TODO Auto-generated method stub
+				
+			}
+
+			@Override
+			public Titulo remove(int index) {
+				// TODO Auto-generated method stub
+				return null;
+			}
+
+			@Override
+			public int indexOf(Object o) {
+				// TODO Auto-generated method stub
+				return 0;
+			}
+
+			@Override
+			public int lastIndexOf(Object o) {
+				// TODO Auto-generated method stub
+				return 0;
+			}
+
+			@Override
+			public ListIterator<Titulo> listIterator() {
+				// TODO Auto-generated method stub
+				return null;
+			}
+
+			@Override
+			public ListIterator<Titulo> listIterator(int index) {
+				// TODO Auto-generated method stub
+				return null;
+			}
+
+			@Override
+			public List<Titulo> subList(int fromIndex, int toIndex) {
+				// TODO Auto-generated method stub
+				return null;
+			}
+		}; 
+		titulos.add(t);
+		
+		Persona p=new Persona();
+		p.setDni(36354790);
+		p.setNombre("Walter Gabriel");
+		p.setApellido("Perez Sardi");
+		Date fecha = Date.valueOf("1992-05-31");
+		p.setFecha(fecha);
+		p.setTitulos(titulos);
+		personaDAO.save(p);
+		
+	}
+	 
+
+}

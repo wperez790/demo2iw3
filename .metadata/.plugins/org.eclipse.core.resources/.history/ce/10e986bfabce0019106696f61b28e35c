@@ -1,0 +1,18 @@
+package com.example.demo.business;
+
+import java.util.List;
+
+import com.example.demo.model.Persona;
+
+public interface IPersonaBusiness {
+
+	
+	public List<Persona> list() throws BusinessException;
+
+	public Persona load(int idProducto) throws BusinessException, NotFoundException;
+
+	public Persona save(Persona producto) throws BusinessException;
+
+	public void remove(int idProducto) throws BusinessException, NotFoundException;
+
+}

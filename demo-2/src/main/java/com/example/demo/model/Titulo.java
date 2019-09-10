@@ -1,8 +1,6 @@
 package com.example.demo.model;
 
 import java.util.List;
-import java.util.Set;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -21,8 +19,8 @@ public class Titulo {
 	@Column(length = 35)
 	private String titulo;
 	@ManyToMany(mappedBy="titulosPersona")
-	Set<Persona> personasConTitulo;
-	//private List<Persona> personas;
+	//Set<Persona> personasConTitulo;
+	private List<Persona> personas;
 	
 	public int getIdTitulo() {
 		return idTitulo;
@@ -35,6 +33,12 @@ public class Titulo {
 	}
 	public void setTitulo(String titulo) {
 		this.titulo = titulo;
+	}
+	public List<Persona> getPersonas() {
+		return personas;
+	}
+	public void setPersonas(List<Persona> personas) {
+		this.personas = personas;
 	}
 	
 }

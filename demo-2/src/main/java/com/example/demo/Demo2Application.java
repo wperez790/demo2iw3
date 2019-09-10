@@ -11,6 +11,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import com.example.demo.model.Persona;
 import com.example.demo.model.Titulo;
 import com.example.demo.persistence.PersonaRepository;
+import com.example.demo.persistence.TituloRepository;
 
 
 @SpringBootApplication
@@ -23,6 +24,8 @@ public class Demo2Application implements CommandLineRunner{
 	
 	@Autowired
 	private PersonaRepository personaDAO;
+	@Autowired
+	private TituloRepository tituloDAO;
 	
 	
 	@Override
@@ -32,6 +35,7 @@ public class Demo2Application implements CommandLineRunner{
 		t.setTitulo("Analista de Sistemas");
 		List<Titulo> titulos = new ArrayList<>(); 
 		titulos.add(t);
+		tituloDAO.save(t);
 		
 		Persona p=new Persona();
 		p.setDni(36354790);
@@ -39,6 +43,7 @@ public class Demo2Application implements CommandLineRunner{
 		p.setApellido("Perez Sardi");
 		Date fecha = Date.valueOf("1992-05-31");
 		p.setFecha(fecha);
+		p.setTitulos(titulos);
 		personaDAO.save(p);
 		
 	}

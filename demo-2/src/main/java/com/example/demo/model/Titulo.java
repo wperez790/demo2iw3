@@ -1,10 +1,14 @@
 package com.example.demo.model;
 
+import java.util.List;
+import java.util.Set;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -13,9 +17,13 @@ public class Titulo {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	int idTitulo; 
+	private int idTitulo; 
 	@Column(length = 35)
-	String titulo;
+	private String titulo;
+	@ManyToMany(mappedBy="titulosPersona")
+	Set<Persona> personasConTitulo;
+	//private List<Persona> personas;
+	
 	public int getIdTitulo() {
 		return idTitulo;
 	}

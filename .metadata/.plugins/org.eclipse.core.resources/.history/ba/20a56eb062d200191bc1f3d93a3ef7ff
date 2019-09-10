@@ -1,0 +1,42 @@
+package com.example.demo.business;
+
+import java.util.List;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.example.demo.model.Titulo;
+import com.example.demo.persistence.TituloRepository;
+
+public class TituloBusiness implements ITituloBusiness {
+	
+	private Logger log = LoggerFactory.getLogger(this.getClass());
+	@Autowired
+	private TituloRepository tituloDAO;
+
+	@Override
+	public List<Titulo> list() throws BusinessException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Titulo load(int idPersona) throws BusinessException, NotFoundException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Titulo save(Titulo persona) throws BusinessException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void remove(int idPersona) throws BusinessException, NotFoundException {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

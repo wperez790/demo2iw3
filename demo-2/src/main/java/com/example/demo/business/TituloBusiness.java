@@ -1,0 +1,73 @@
+package com.example.demo.business;
+
+import java.util.List;
+import java.util.Optional;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.example.demo.model.Titulo;
+import com.example.demo.persistence.TituloRepository;
+
+@Service
+public class TituloBusiness implements ITituloBusiness {
+	
+	private Logger log = LoggerFactory.getLogger(this.getClass());
+	
+	@Autowired
+	private TituloRepository tituloDAO;
+
+	@Override
+	public List<Titulo> list() throws BusinessException {
+		try {
+			return tituloDAO.findAll();
+		} catch (Exception e) {
+			log.error(e.getMessage(), e);
+			throw new BusinessException(e);
+		}
+	}
+
+	@Override
+	public Titulo load(int idTitulo) throws BusinessException, NotFoundException {
+		Optional<Titulo> op = null;
+		try {
+			op = tituloDAO.findById(idTitulo);
+		} catch (Exception e) {
+			throw new BusinessException(e);
+		}
+		if (!op.isPresent())
+			throw new NotFoundException("No se encuentra la Persona con id=" + idTitulo);
+		return op.get();
+	}
+
+	@Override
+	public Titulo save(Titulo titulo) throws BusinessException {
+		try {
+			return tituloDAO.save(titulo);
+		} catch (Exception e) {
+			throw new BusinessException(e);
+		}
+	}
+
+	@Override
+	public void remove(int idTitulo) throws BusinessException, NotFoundException {
+		Optional<Titulo> op = null;
+		try {
+			op = tituloDAO.findById(idTitulo);
+		} catch (Exception e) {
+			throw new BusinessException(e);
+		}
+
+		if (!op.isPresent())
+			throw new NotFoundException("No se encuentra la persona con id=" + idTitulo);
+		try {
+			tituloDAO.deleteById(idTitulo);
+		} catch (Exception e) {
+			throw new BusinessException(e);
+		}
+		
+	}
+
+}

@@ -6,3 +6,6 @@
 1567556983551	Rename field 'personaDao'
 1567558058880	Rename field 'URL_BASE_PRODUCTOS'
 1567562344025	Convert local variable 'titulos' to field
+1567965743065	Rename local variable 'idPersona'
+1567965757052	Rename local variable 'persona'
+1567965779091	Rename local variable 'idPersona'

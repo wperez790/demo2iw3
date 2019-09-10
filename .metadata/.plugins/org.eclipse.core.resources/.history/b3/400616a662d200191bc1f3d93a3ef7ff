@@ -1,0 +1,33 @@
+package com.example.demo.business;
+
+import java.util.List;
+
+import com.example.demo.model.Titulo;
+
+public class TituloBusiness implements ITituloBusiness {
+
+	@Override
+	public List<Titulo> list() throws BusinessException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Titulo load(int idPersona) throws BusinessException, NotFoundException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Titulo save(Titulo persona) throws BusinessException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void remove(int idPersona) throws BusinessException, NotFoundException {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

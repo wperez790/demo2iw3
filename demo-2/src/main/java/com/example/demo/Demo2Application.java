@@ -39,7 +39,6 @@ public class Demo2Application implements CommandLineRunner{
 		p.setApellido("Perez Sardi");
 		Date fecha = Date.valueOf("1992-05-31");
 		p.setFecha(fecha);
-		p.setTitulos(titulos);
 		personaDAO.save(p);
 		
 	}

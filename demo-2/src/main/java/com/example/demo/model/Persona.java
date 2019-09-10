@@ -14,6 +14,7 @@ import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 import java.util.List;
+import java.util.Set;
 
 @Entity
 @Table(name="personas")
@@ -28,14 +29,16 @@ public class Persona {
 	private String apellido;
 	private Date fecha;
 	
-	@JoinTable(
-	name="rel_persona_titulos",
-	joinColumns = @JoinColumn(name="FK_PERSONA", nullable = false),
-	inverseJoinColumns = @JoinColumn(name="FK_TITULO", nullable = false)
-	)
+	
 	
 	@ManyToMany
-	private List<Titulo> titulos;
+	@JoinTable(
+			name="rel_persona_titulos",
+			joinColumns = @JoinColumn(name="persona_id", nullable = false),
+			inverseJoinColumns = @JoinColumn(name="titulo_id", nullable = false)
+			)
+	Set<Titulo> titulosPersona;
+	//private List<Titulo> titulosPersona;
 	
 	
 	
@@ -70,13 +73,15 @@ public class Persona {
 	public void setFecha(Date fecha) {
 		this.fecha = fecha;
 	}
-	public List<Titulo> getTitulos() {
-		return titulos;
+/*	public List<Titulo> getTitulos() {
+		return titulosPersona;
 	}
 	public void setTitulos(List<Titulo> titulos) {
-		this.titulos = titulos;
+		this.titulosPersona = titulos;
 	} 
-	
+	public void addTitulos(Titulo titulo) {
+		this.titulosPersona.add(titulo);
+	}*/
 	
 
 }
